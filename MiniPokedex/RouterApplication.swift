@@ -11,9 +11,12 @@ import UIKit
 class RouterApplication {
     static let shared = RouterApplication()
 
-    func navigateToLogin(navigationController: UINavigationController?) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        
+    func startWindow(window: UIWindow?) {
+        let pokemonListModule = PokemonListModule.build()
+        let controller = PokemonListViewController(nibName: "PokemonListViewController", bundle: nil)
+        controller.view = pokemonListModule.view
+        let navigationViewContoller = UINavigationController(rootViewController: controller)
+        window?.rootViewController = navigationViewContoller
+       
     }
 }

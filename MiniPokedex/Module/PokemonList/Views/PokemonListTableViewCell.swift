@@ -8,16 +8,13 @@
 import UIKit
 
 class PokemonListTableViewCell: UITableViewCell {
+    @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet weak var pokemonName: UILabel!
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+extension PokemonListTableViewCell {
+    func decorate(using viewModel: PokemonListViewModel) {
+       // pokemonImage.image = UIImage(url: URL(string: viewModel.url))
+        pokemonName.text = viewModel.name
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
