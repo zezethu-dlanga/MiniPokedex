@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         let pokemonListModule = PokemonListModule.build()
-        window?.rootViewController = pokemonListModule
+        let nav = UINavigationController(rootViewController: pokemonListModule)
+        window?.rootViewController = nav
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

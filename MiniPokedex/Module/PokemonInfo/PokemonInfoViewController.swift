@@ -7,23 +7,49 @@
 
 import UIKit
 
-class PokemonInfoViewController: UIViewController {
+final class PokemonInfoViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var pokemonImageView: UIImageView!
+    
+    
+    // MARK: - PokemonInfoViewProtocol
+    var presenter: PokemonInfoPresenterProtocol?
+    
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .black
+        presenter?.viewDidLoad()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
-    */
-
 }
+
+
+// MARK: - PokemonListViewProtocol
+extension PokemonInfoViewController: PokemonInfoViewProtocol {
+    func decorate() {
+        if let viewModel = presenter?.makeViewModel() {
+            pokemonImageView.image = UIImage(url: URL(string: viewModel.picture))
+        }
+    }
+
+    func showLoader() {
+        showBusyView()
+    }
+
+    func hideLoader() {
+        hideBusyView()
+    }
+
+    func dismissView() {
+        dismiss(animated: true)
+    }
+}
+

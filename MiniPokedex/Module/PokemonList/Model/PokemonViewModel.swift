@@ -1,5 +1,5 @@
 //
-//  PokemonListViewModel.swift
+//  PokemonViewModel.swift
 //  MiniPokedex
 //
 //  Created by Zezethu Dlanga on 2024/02/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PokemonListViewModel {
+struct PokemonViewModel {
     let name: String
     let url: String
 

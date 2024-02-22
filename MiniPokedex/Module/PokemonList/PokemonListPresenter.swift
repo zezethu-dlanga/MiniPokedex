@@ -11,8 +11,8 @@ final class PokemonListPresenter {
     
     //MARK: - PokemonListPresenterProtocol
     var interactor: PokemonListInteractorInputProtocol?
-    var pokemonList: [PokemonListViewModel] = []
-    var pokemonTempList: [PokemonListViewModel] = []
+    var pokemonList: [PokemonViewModel] = []
+    var pokemonTempList: [PokemonViewModel] = []
 
     
     //MARK: - Properties
@@ -31,20 +31,22 @@ final class PokemonListPresenter {
 
 //MARK: - PokemonListPresenterProtocol
 extension PokemonListPresenter: PokemonListPresenterProtocol {
+    
+    
     func viewDidLoad() {
         view?.showLoader()
         interactor?.fetchPokemonList()
     }
-
+    
     func didSelectPokemon(at indexPath: IndexPath) {
-        if let pokemonList = pokemonList.element(at: indexPath.row) {
-            //Navigate to info screen
+        if let pokemon = pokemonList.element(at: indexPath.row) {
+            router.navigateToPokemonInfo(pokemon: pokemon)
         }
     }
 
-    func makeViewModel(using indexPath: IndexPath) -> PokemonListViewModel? {
+    func makeViewModel(using indexPath: IndexPath) -> PokemonViewModel? {
         if let pokemon = pokemonList.element(at: indexPath.row) {
-            return PokemonListViewModel(
+            return PokemonViewModel(
                 name: pokemon.name, url: pokemon.url)
         }
         return nil
@@ -58,7 +60,7 @@ extension PokemonListPresenter: PokemonListInteractorOutputProtocol {
 
         pokemons.forEach { pokemon in
             pokemonList.append(
-                PokemonListViewModel(
+                PokemonViewModel(
                     name: pokemon.name?.capitalizingFirstLetter() ?? "",
                     url: pokemon.url ?? ""
                 )

@@ -30,14 +30,15 @@ protocol PokemonListInteractorOutputProtocol: AnyObject {
 /// ViewController -> Presenter
 protocol PokemonListPresenterProtocol: AnyObject, ViewControllerLifeCycle {
     var interactor: PokemonListInteractorInputProtocol? { get set }
-    var pokemonList: [PokemonListViewModel] { get set}
-    var pokemonTempList: [PokemonListViewModel] { get set}
+    var pokemonList: [PokemonViewModel] { get set}
+    var pokemonTempList: [PokemonViewModel] { get set}
 
     func didSelectPokemon(at indexPath: IndexPath)
-    func makeViewModel(using indexPath: IndexPath) -> PokemonListViewModel?
+    func makeViewModel(using indexPath: IndexPath) -> PokemonViewModel?
 }
 
 // MARK: - Router
 /// Navigation
 protocol PokemonListRouterProtocol: AnyObject {
+    func navigateToPokemonInfo(pokemon: PokemonViewModel)
 }
