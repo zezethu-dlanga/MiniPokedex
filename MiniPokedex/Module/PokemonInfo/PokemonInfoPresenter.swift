@@ -53,18 +53,13 @@ extension PokemonInfoPresenter: PokemonInfoInteractorOutputProtocol {
         
         var abilities = ""
         var types = ""
-        let hp = ""
-        let hpStat = 0
-        let attack = ""
-        let attackStat = 0
-        let defence = ""
-        let defenceStat = 0
-        let specialAttack = ""
-        let specialAttackStat = 0
-        let specialDefence = ""
-        let specialDefenceStat = 0
-        let speed = ""
-        let speedStat = 0
+        var hpStat = 0
+        var attackStat = 0
+        var defenceStat = 0
+        var specialAttackStat = 0
+        var specialDefenceStat = 0
+        var speedStat = 0
+        
         
         pokemonInfo.abilities?.forEach {
             abilities.append("\($0.ability?.name?.capitalizingFirstLetter() ?? "") ")
@@ -73,7 +68,27 @@ extension PokemonInfoPresenter: PokemonInfoInteractorOutputProtocol {
         pokemonInfo.types?.forEach {
             types.append("\($0.type?.name?.capitalizingFirstLetter() ?? "") ")
         }
-        
+
+        pokemonInfo.stats?.forEach { pokemon in
+            if pokemon.stat?.name == "hp" {
+                hpStat = pokemon.base_stat ?? 0
+            }
+            else if pokemon.stat?.name == "attack" {
+                attackStat = pokemon.base_stat ?? 0
+            }
+            else if pokemon.stat?.name == "defense" {
+                defenceStat = pokemon.base_stat ?? 0
+            }
+            else if pokemon.stat?.name == "special-attack" {
+                specialAttackStat = pokemon.base_stat ?? 0
+            }
+            else if pokemon.stat?.name == "special-defense" {
+                specialDefenceStat = pokemon.base_stat ?? 0
+            }
+            else if pokemon.stat?.name == "speed" {
+                speedStat = pokemon.base_stat ?? 0
+            }
+        }
         
         pokemonInfoView = PokemonInfoViewModel(
             name: pokemonInfo.name ?? "",
@@ -82,17 +97,11 @@ extension PokemonInfoPresenter: PokemonInfoInteractorOutputProtocol {
             weight: "Weight: \(pokemonInfo.weight ?? 0)",
             abilities: "Abilities: \(abilities)",
             types: "Types: \(types)",
-            hp: hp,
             hpStat: hpStat,
-            attack: attack,
             attackStat: attackStat,
-            defence: defence,
             defenceStat: defenceStat,
-            specialAttack: specialAttack,
             specialAttackStat: specialAttackStat,
-            specialDefence: specialDefence,
             specialDefenceStat: specialDefenceStat,
-            speed: speed,
             speedStat: speedStat
         )
         view?.decorate()
