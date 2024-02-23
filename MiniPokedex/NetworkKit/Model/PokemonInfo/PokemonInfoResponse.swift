@@ -193,9 +193,10 @@ struct SpritesModel: Codable {
     let front_female: String?
     let front_shiny: String?
     let front_shiny_female: String?
+    let other: OtherModel?
     
     
-    init(back_default: String?, back_female: String?, back_shiny: String?, back_shiny_female: String?, front_default: String?, front_female: String?, front_shiny: String?, front_shiny_female: String?) {
+    init(back_default: String?, back_female: String?, back_shiny: String?, back_shiny_female: String?, front_default: String?, front_female: String?, front_shiny: String?, front_shiny_female: String?, other: OtherModel?) {
         self.back_default = back_default
         self.back_female = back_female
         self.back_shiny = back_shiny
@@ -204,6 +205,25 @@ struct SpritesModel: Codable {
         self.front_female = front_female
         self.front_shiny = front_shiny
         self.front_shiny_female = front_shiny_female
+        self.other = other
+    }
+}
+
+struct OtherModel: Codable {
+    let home: HomeModel?
+    
+    init(home: HomeModel?) {
+        self.home = home
+    }
+}
+
+struct HomeModel: Codable {
+    let front_default: String?
+    let front_shiny: String?
+    
+    init(front_default: String?, front_shiny: String?) {
+        self.front_default = front_default
+        self.front_shiny = front_shiny
     }
 }
 

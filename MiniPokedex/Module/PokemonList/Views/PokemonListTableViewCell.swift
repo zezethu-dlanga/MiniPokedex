@@ -15,7 +15,7 @@ class PokemonListTableViewCell: UITableViewCell {
 extension PokemonListTableViewCell {
     func decorate(using viewModel: PokemonViewModel) {
         let pictureNumber:Int = viewModel.url.allNumbers.last ?? 0
-        pokemonImage.image = UIImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pictureNumber).png"))
+        pokemonImage.image = UIImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pictureNumber).png"))
         pokemonName.text = viewModel.name
     }
 }

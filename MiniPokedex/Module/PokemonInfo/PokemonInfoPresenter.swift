@@ -51,9 +51,23 @@ extension PokemonInfoPresenter: PokemonInfoInteractorOutputProtocol {
     func didGetPokemonInfo(pokemonInfo: PokemonInfoResponse) {
         view?.hideLoader()
         
+        var abilities = ""
+        pokemonInfo.abilities?.forEach {
+            abilities.append("\($0.ability?.name?.capitalizingFirstLetter() ?? "") ")
+        }
+        
+        var types = ""
+        pokemonInfo.types?.forEach {
+            types.append("\($0.type?.name?.capitalizingFirstLetter() ?? "") ")
+        }
+        
         pokemonInfoView = PokemonInfoViewModel(
-            name: pokemonInfo.forms?.first?.name ?? "",
-            picture: pokemonInfo.sprites?.front_default ?? ""
+            name: pokemonInfo.name ?? "",
+            picture: pokemonInfo.sprites?.other?.home?.front_default ?? "",
+            height: "Height: \(pokemonInfo.height ?? 0)",
+            weight: "Weight: \(pokemonInfo.weight ?? 0)",
+            abilities: "Abilities: \(abilities)",
+            types: "Types: \(types)"
         )
         view?.decorate()
     }

@@ -22,6 +22,7 @@ class PokemonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "Pokédex"
         setupTableView()
         setupSearchBar()
         presenter?.viewDidLoad()
