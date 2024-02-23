@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E17C45332B88940900B41D16 /* GradientProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17C45322B88940900B41D16 /* GradientProgressView.swift */; };
 		E17D71BE2B87187000C8D184 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17D71BD2B87187000C8D184 /* UIViewExtension.swift */; };
 		E17D71C12B871DA400C8D184 /* PokemonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17D71BF2B871DA400C8D184 /* PokemonInfoViewController.swift */; };
 		E17D71C22B871DA400C8D184 /* PokemonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17D71C02B871DA400C8D184 /* PokemonInfoViewController.xib */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E17C45322B88940900B41D16 /* GradientProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientProgressView.swift; sourceTree = "<group>"; };
 		E17D71BD2B87187000C8D184 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		E17D71BF2B871DA400C8D184 /* PokemonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoViewController.swift; sourceTree = "<group>"; };
 		E17D71C02B871DA400C8D184 /* PokemonInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonInfoViewController.xib; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E17C45312B88929200B41D16 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E17C45322B88940900B41D16 /* GradientProgressView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E198F7572B85D53800F77248 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +194,7 @@
 		E1FFA22D2B853A8B00763F9E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				E17C45312B88929200B41D16 /* Helpers */,
 				E198F7572B85D53800F77248 /* Extensions */,
 				E1FFA2302B853B4D00763F9E /* Protocols */,
 			);
@@ -338,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E198F7362B8547DE00F77248 /* PokemonListRouter.swift in Sources */,
+				E17C45332B88940900B41D16 /* GradientProgressView.swift in Sources */,
 				E18685872B86C1C500A527A9 /* StringExtension.swift in Sources */,
 				E1FFA22C2B84A86200763F9E /* PokemonListResponse.swift in Sources */,
 				E198F74C2B854B4B00F77248 /* PokemonInfoPresenter.swift in Sources */,

@@ -52,14 +52,28 @@ extension PokemonInfoPresenter: PokemonInfoInteractorOutputProtocol {
         view?.hideLoader()
         
         var abilities = ""
+        var types = ""
+        let hp = ""
+        let hpStat = 0
+        let attack = ""
+        let attackStat = 0
+        let defence = ""
+        let defenceStat = 0
+        let specialAttack = ""
+        let specialAttackStat = 0
+        let specialDefence = ""
+        let specialDefenceStat = 0
+        let speed = ""
+        let speedStat = 0
+        
         pokemonInfo.abilities?.forEach {
             abilities.append("\($0.ability?.name?.capitalizingFirstLetter() ?? "") ")
         }
         
-        var types = ""
         pokemonInfo.types?.forEach {
             types.append("\($0.type?.name?.capitalizingFirstLetter() ?? "") ")
         }
+        
         
         pokemonInfoView = PokemonInfoViewModel(
             name: pokemonInfo.name ?? "",
@@ -67,7 +81,19 @@ extension PokemonInfoPresenter: PokemonInfoInteractorOutputProtocol {
             height: "Height: \(pokemonInfo.height ?? 0)",
             weight: "Weight: \(pokemonInfo.weight ?? 0)",
             abilities: "Abilities: \(abilities)",
-            types: "Types: \(types)"
+            types: "Types: \(types)",
+            hp: hp,
+            hpStat: hpStat,
+            attack: attack,
+            attackStat: attackStat,
+            defence: defence,
+            defenceStat: defenceStat,
+            specialAttack: specialAttack,
+            specialAttackStat: specialAttackStat,
+            specialDefence: specialDefence,
+            specialDefenceStat: specialDefenceStat,
+            speed: speed,
+            speedStat: speedStat
         )
         view?.decorate()
     }
